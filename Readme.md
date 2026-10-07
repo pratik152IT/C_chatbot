@@ -13,8 +13,10 @@ C_chatbot/
 │   └── dashboard.py          # LLM evaluation and benchmarking dashboard
 ├── data/
 │   ├── CJSON/                # Target C library codebase for indexing
-│   ├── chroma_db/            # Persistent ChromaDB vector database
-│   ├── sample1-3.c           # Sample C source test files
+│   ├── chroma_db/            # Persistent ChromaDB vector database (ignored by git)
+│   ├── sample1.c             # Sample C source test file
+│   ├── sample2.c             # Sample C source test file
+│   ├── sample3.c             # Sample C source test file
 │   └── eval_c_results.csv    # Benchmark performance metrics
 ├── src/
 │   ├── __init__.py
@@ -24,8 +26,80 @@ C_chatbot/
 │   └── ragpipline.py         # Context retrieval & prompt augmentation
 ├── test_new/
 │   ├── eval_models.py        # Automated GCC compilation & evaluation suite
+│   ├── explore_ast.py        # AST inspection utility
 │   ├── model_eval.py         # DeepEval accuracy & readability suite
+│   ├── test_embed.py         # Embedding model connectivity test
+│   ├── test_explain.py       # Explanation prompt benchmarks
+│   ├── test_ollama.py        # Ollama API response tests
 │   └── test_retrieval.py     # Vector similarity retrieval tests
 ├── .gitignore
 ├── requirements.txt          # Project dependencies
 └── README.md
+```
+
+---
+
+## ⚡ Features
+
+- **AST-Aware Code Chunking:** Uses `tree-sitter-c` to chunk code logically at function and struct boundaries instead of arbitrary character limits.
+- **100% Local Processing:** Uses local embedding models (`nomic-embed-text`) and LLMs (`qwen2.5-coder:7b`) via Ollama with zero external API calls.
+- **Signature Compression:** Extracts concise C function declarations and struct definitions to minimize context window usage.
+- **Automated Compiler Feedback Loop:** Evaluates generated C code using `gcc -Wall -Wextra` to count warnings and execution correctness.
+- **Interactive Dashboards:** Streamlit UI for both real-time code QA and comparative model evaluation analytics.
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+1. **Python 3.10+**
+2. **GCC Compiler:** Ensure GCC is installed and added to system PATH (e.g., via MinGW/MSYS2 on Windows).
+3. **Ollama:** Installed and running locally (`http://localhost:11434`).
+
+Pull required local models:
+```bash
+ollama pull nomic-embed-text
+ollama pull qwen2.5-coder:7b
+```
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone [https://github.com/pratik152IT/C_chatbot.git](https://github.com/pratik152IT/C_chatbot.git)
+cd C_chatbot
+```
+
+2. Install dependencies:
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+## 💻 Usage
+
+### 1. Index Codebase
+Extract chunks from C source files in `data/` and build the persistent vector database:
+```bash
+python -m src.index_chunks
+```
+
+### 2. Run Interactive Chatbot
+Launch the Streamlit web interface:
+```bash
+python -m streamlit run app/chat_app.py
+```
+
+### 3. Run Performance Analytics Dashboard
+View comparative benchmarks across tested local models:
+```bash
+python -m streamlit run app/dashboard.py
+```
+
+### 4. Run Benchmark Test Suite
+Evaluate local models against code generation, debugging, explanation, and QA tasks:
+```bash
+python -m test_new.eval_models
+```
