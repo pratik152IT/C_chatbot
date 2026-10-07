@@ -1,0 +1,10 @@
+streamlit
+chromadb
+ollama
+tree-sitter
+tree-sitter-c
+pandas
+plotly
+textstat
+deepeval
+requests
