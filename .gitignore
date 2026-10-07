@@ -1,3 +1,21 @@
-chroma_db/
+# Ignore generated vector database
+data/chroma_db/
+
+# Python cache & bytecode
 __pycache__/
-*.pyc
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# Streamlit cache
+.streamlit/
+
+# OS/Editor junk
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

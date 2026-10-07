@@ -204,10 +204,11 @@ with tempfile.TemporaryDirectory() as tmp:
             text, wall, tps = ask(m, q)
             record("qa", q[:40], re.search(pat, text, re.I), wall, tps, 0, text)
 
-with open("eval_c_results.csv", "w", newline="", encoding="utf-8") as f:
-    w = csv.DictWriter(f, fieldnames=rows[0].keys())
-    w.writeheader()
-    w.writerows(rows)
+# Updated CSV save path at the bottom of test_new/eval_models.py
+with open("data/eval_c_results.csv", "w", newline="", encoding="utf-8") as f:
+  w = csv.DictWriter(f, fieldnames=rows[0].keys())
+  w.writeheader()
+  w.writerows(rows)
 
 # ---------------------------------------------------------------- SUMMARY
 TASKS = ["write", "debug", "explain", "qa"]
