@@ -48,12 +48,12 @@ def build_prompt(user_question, chunks):
 
   prompt = f"""You are a C programming assistant. Use the following code context and structure info from the project to answer the question when relevant.
 
-RULES:
+
 1. If the context below contains code relevant to the question, base your answer primarily on that code and reference it directly.
 2. If the context does NOT contain anything relevant to the question, explicitly say so first before providing a general C programming answer.
 3. Never present general-knowledge code as if it came from the project's codebase.
 
-STRUCTURE INFO (signatures only, for quick reference):
+STRUCTURE INFO :
 {structure_info}
 
 FULL CODE CONTEXT:
