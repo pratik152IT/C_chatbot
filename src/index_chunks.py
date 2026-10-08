@@ -53,7 +53,7 @@ def index_folder(folder_path):
 
 
 if __name__ == "__main__":
-  # Updated target paths inside data/
+  
   index_file("data/sample1.c")
   index_file("data/sample2.c")
   index_file("data/sample3.c")
