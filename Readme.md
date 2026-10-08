@@ -13,25 +13,25 @@ C_chatbot/
 │   └── dashboard.py          # LLM evaluation and benchmarking dashboard
 ├── data/
 │   ├── CJSON/                # Target C library codebase for indexing
-│   ├── chroma_db/            # Persistent ChromaDB vector database (ignored by git)
+│   ├── chroma_db/            # Persistent ChromaDB vector database 
 │   ├── sample1.c             # Sample C source test file
 │   ├── sample2.c             # Sample C source test file
 │   ├── sample3.c             # Sample C source test file
-│   └── eval_c_results.csv    # Benchmark performance metrics
+│   
 ├── src/
 │   ├── __init__.py
-│   ├── chunker.py            # AST-based code chunking using tree-sitter-c
-│   ├── structure_extractor.py# C function & struct signature extractor
-│   ├── index_chunks.py       # Embedding generation & ChromaDB indexing
-│   └── ragpipline.py         # Context retrieval & prompt augmentation
+│   ├── chunker.py            #code chunking using tree-sitter
+│   ├── structure_extractor.py# C function & structure  extractor
+│   ├── index_chunks.py       # Embedding generation & indexing in ChromaDB
+│   └── ragpipline.py         # Context retrieval & prompt generation 
 ├── test_new/
-│   ├── eval_models.py        # Automated GCC compilation & evaluation suite
-│   ├── explore_ast.py        # AST inspection utility
-│   ├── model_eval.py         # DeepEval accuracy & readability suite
-│   ├── test_embed.py         # Embedding model connectivity test
-│   ├── test_explain.py       # Explanation prompt benchmarks
-│   ├── test_ollama.py        # Ollama API response tests
-│   └── test_retrieval.py     # Vector similarity retrieval tests
+│   ├── eval_models.py       
+│   ├── explore_ast.py        
+│   ├── model_eval.py         
+│   ├── test_embed.py         
+│   ├── test_explain.py       
+│   ├── test_ollama.py        
+│   └── test_retrieval.py     
 ├── .gitignore
 ├── requirements.txt          # Project dependencies
 └── README.md
