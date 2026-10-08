@@ -39,12 +39,6 @@ C_chatbot/
 
 ---
 
-## 📌 What It Does
-
-* **Codebase Indexing:** Extracts functions and structures from C files in `data/` and stores embeddings locally in ChromaDB using `nomic-embed-text`.
-* **Context-Aware Assistance:** Retrieves relevant C code snippets to answer questions, find bugs, and explain memory/pointer behavior using `qwen2.5-coder`.
-
----
 
 ## 🚀 How to Run
 
